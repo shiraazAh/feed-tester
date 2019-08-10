@@ -34,12 +34,17 @@ $(function() {
             for(feed of allFeeds){
                 expect(feed.url).toBeDefined();
             }
-        })
+        });
 
         /* TODO: Write a test that loops through each feed
          * in the allFeeds object and ensures it has a name defined
          * and that the name is not empty.
          */
+        it('has name', function(){
+            for(feed of allFeeds){
+                expect(feed.name).toBeDefined();
+            } 
+        })
     });
 
 
