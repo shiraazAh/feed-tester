@@ -59,7 +59,7 @@ $(function() {
          */
 
         it('is hidden by default', function() {
-            expect(document.querySelector('body').classList.contains('menu-hidden')).toBe(true);
+            expect(document.querySelector('body')).toHaveClass('menu-hidden');
         })
 
          /* TODO: Write a test that ensures the menu changes
@@ -67,6 +67,7 @@ $(function() {
           * should have two expectations: does the menu display when
           * clicked and does it hide when clicked again.
           */
+        
 
     })
 
