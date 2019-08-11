@@ -6,13 +6,16 @@ $(function() {
         
         /* Test 1 in "RSS Feeds": test that allFeeds variable is defined and not empty */
         it('are defined', function() {
+            // To test if allFeeds is defined 
             expect(allFeeds).toBeDefined();
+            // To test allFeeds is not empty
             expect(allFeeds.length).not.toBe(0);
         });
         
         /* Test 2 in "RSS Feeds": Loop through allFeeds and ensure it has a URL of defined and
            URL is not empty. */
         it('has url', function() {
+            // to test if all the feed url are defined
             for(feed of allFeeds){
                 expect(feed.url).toBeDefined();
             }
@@ -21,6 +24,7 @@ $(function() {
         /* Test 3 in "RSS Feeds": Loop through allFeeds and ensure it has a name of defined and
          name is not empty */
         it('has name', function(){
+            // To test if all the feed names are defined
             for(feed of allFeeds){
                 expect(feed.name).toBeDefined();
             } 
@@ -68,6 +72,7 @@ $(function() {
         })
 
         it('Async has atleast one entry', function(done) {
+            // To test if the no.of Entries is greater than zero.
             expect(document.querySelector('.feed').getElementsByClassName('entry').length).toBeGreaterThan(0);
             done();
         })
@@ -80,6 +85,7 @@ $(function() {
         /* Test 4 in "New Feed Selection": Ensures a new feed is loaded by the loadFeed function 
          and that the entry content actually changes */
 
+        // get all feed entries
         var entries = document.querySelector('.feed').getElementsByClassName('entry')
 
         beforeEach(function(done){
@@ -87,6 +93,8 @@ $(function() {
         })
 
         it('always changes', function(done){
+    
+            // To test whether the first entry content is not equal to the second entry content
             expect(entries[1].innerText).not.toEqual(entries[0].innerText);
             done();
         })
