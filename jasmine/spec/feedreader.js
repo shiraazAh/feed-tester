@@ -82,7 +82,7 @@ $(function() {
 
         it('Async has atleast one entry', function(done) {
             // To test if the no.of Entries is greater than zero.
-            expect(document.querySelector('.feed').getElementsByClassName('entry').length).toBeGreaterThan(0);
+            expect(document.querySelectorAll('.feed .entry').length).toBeGreaterThan(0);
             done();
         })
 
