@@ -17,7 +17,10 @@ $(function() {
         it('has url', function() {
             // to test if all the feed url are defined
             for(feed of allFeeds){
+                // To test if feed url is defined 
                 expect(feed.url).toBeDefined();
+                // To test if feed url is not empty
+                expect(feed.url.length).not.toBe(0);
             }
         });
 
@@ -26,7 +29,10 @@ $(function() {
         it('has name', function(){
             // To test if all the feed names are defined
             for(feed of allFeeds){
+                // To test if feed url is defined
                 expect(feed.name).toBeDefined();
+                // To test if feed name is not empty
+                expect(feed.name.length).not.toBe(0);
             } 
         })
     });
@@ -43,16 +49,19 @@ $(function() {
          * 1. Does the menu display when clicked and
          * 2. Does it hide when clicked again. */
         it('changes visibility', function() {
+            // Selecting menu icon
             var menuIcon = document.querySelector('.menu-icon-link');
+            // Selecting body class list
+            var bodyClassList = document.querySelector('body').classList;
 
             // first click
             menuIcon.click();
             // expect menu class not to have menu-hidden on first click
-            expect(document.querySelector('body')).not.toHaveClass('menu-hidden');;
+            expect(bodyClassList.contains('menu-hidden')).toBe(false);;
             // Second click
             menuIcon.click();
             // expect menu class to have menu-hidden on the second click.
-            expect(document.querySelector('body')).toHaveClass('menu-hidden');
+            expect(bodyClassList.contains('menu-hidden')).toBe(true);
         })
 
     });
