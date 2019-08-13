@@ -95,16 +95,21 @@ $(function() {
          and that the entry content actually changes */
 
         // get all feed entries
-        var entries = document.querySelector('.feed').getElementsByClassName('entry')
+        var feedZero, feedOne;
 
         beforeEach(function(done){
-            loadFeed(1, done);
+            loadFeed(0, function() {
+                feedZero = document.querySelector('.feed').innerHTML;
+                loadFeed(1, function(){
+                    feedOne = document.querySelector('.feed').innerHTML;
+                    done();
+                })
+            });
         })
 
         it('always changes', function(done){
-    
             // To test whether the first entry content is not equal to the second entry content
-            expect(entries[1].innerText).not.toEqual(entries[0].innerText);
+            expect(feedZero).not.toEqual(feedOne);
             done();
         })
         
